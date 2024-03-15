@@ -1,0 +1,84 @@
+plugins {
+    id 'java'
+    id 'org.jetbrains.kotlin.jvm' version '2.0.0-Beta4'
+    id 'maven-publish'
+    id("io.github.gradle-nexus.publish-plugin") version "1.1.0"
+    id 'org.jetbrains.kotlin.plugin.jpa' version '1.4.32'
+    id("org.jetbrains.kotlin.plugin.noarg") version "1.5.31"
+    id("org.jetbrains.kotlin.plugin.allopen") version "1.5.31"
+}
+
+
+group = 'org.gang'
+version = '1.0'
+
+repositories {
+    mavenCentral()
+    maven {
+        name = "papermc-repo"
+        url = "https://repo.papermc.io/repository/maven-public/"
+    }
+    maven {
+        name = "sonatype"
+        url = "https://oss.sonatype.org/content/groups/public/"
+    }
+}
+repositories {
+    mavenLocal()
+    mavenCentral()
+    maven {
+        name = 'papermc'
+        url = 'https://repo.papermc.io/repository/maven-public/'
+    }
+    maven { url = "https://jitpack.io" }
+    maven { url = 'https://repo.papermc.io/repository/maven-public/' }
+    maven { url = 'https://oss.sonatype.org/content/groups/public/' }
+    maven { url = "https://repo.codemc.org/repository/maven-public/" }
+    maven { url "https://s01.oss.sonatype.org/content/groups/public/" }
+    maven {
+        credentials {
+            username = repoUsername
+            password = repoPassword
+        }
+        url "http://nexus.dominicus.kr:8081/repository/RPG/"
+        allowInsecureProtocol = true
+    }
+    maven {
+        url "http://nexus.dominicus.kr:8081/repository/RPG/"
+        allowInsecureProtocol = true
+    }
+    maven {
+        url "http://nexus.dominicus.kr:8081/repository/debugcat-release/"
+        allowInsecureProtocol = true
+    }
+    maven { url "https://repo.dmulloy2.net/repository/public/" }
+    maven {
+        name = 'citizens-repo'
+        url = 'https://maven.citizensnpcs.co/repo'
+    }
+}
+
+dependencies {
+    compileOnly "io.papermc.paper:paper-api:1.20.4-R0.1-SNAPSHOT"
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk8"
+    implementation 'xyz.icetang.lib:kommand-api:3.1.11'
+    implementation("io.github.monun:heartbeat-coroutines:0.0.5")
+    implementation 'io.github.monun:invfx-api:3.3.2'
+    implementation 'taewookim:RPGParty:release'
+    implementation 'taewookim:RPGCore:release'
+    implementation 'taewookim:RPGQuestAdder:release'
+    implementation 'taewookim:RPGPlayerInformation:release'
+// https://mvnrepository.com/artifact/com.squareup.okhttp3/okhttp
+    implementation 'com.squareup.okhttp3:okhttp:4.9.1'
+    implementation 'org.gang:QuestManager:release'
+    implementation("org.hibernate:hibernate-core:5.6.5.Final")
+    implementation('mysql:mysql-connector-java:8.0.33')
+    // base
+    implementation 'com.linecorp.kotlin-jdsl:jpql-dsl:3.3.2'
+    implementation 'com.linecorp.kotlin-jdsl:jpql-render:3.3.2'
+    implementation 'com.linecorp.kotlin-jdsl:hibernate-javax-support:3.3.2'
+    compileOnly('net.citizensnpcs:citizens-main:2.0.33-SNAPSHOT') {
+        exclude group: '*', module: '*'
+    }
+    implementation "org.jetbrains.kotlin:kotlin-reflect:2.0.0-Beta4"
+}

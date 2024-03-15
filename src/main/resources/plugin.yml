@@ -1,0 +1,19 @@
+name: CineManager
+version: '${version}'
+main: org.gang.cinemanager.CineManager
+api-version: '1.20'
+
+depend:
+  - RPGParty
+  - RPGPlayerInformation
+  - Citizens
+libraries:
+  - xyz.icetang.lib:kommand-core:3.1.11
+  - io.github.monun:invfx-core:3.3.2
+  - io.github.monun:heartbeat-coroutines:0.0.5
+  - com.squareup.okhttp3:okhttp:4.9.1
+  - mysql:mysql-connector-java:8.0.33
+  - org.hibernate:hibernate-core:5.6.5.Final
+  - com.linecorp.kotlin-jdsl:jpql-dsl:3.3.2
+  - com.linecorp.kotlin-jdsl:jpql-render:3.3.2
+  - com.linecorp.kotlin-jdsl:hibernate-javax-support:3.3.2
